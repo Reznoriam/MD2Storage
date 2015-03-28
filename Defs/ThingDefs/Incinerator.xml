@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Buildings>
+  <ThingDef Name="BuildingBase" Abstract="True">
+    <category>Building</category>
+    <soundImpactDefault>BulletImpactMetal</soundImpactDefault>
+    <selectable>true</selectable>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <constructEffect>ConstructMetal</constructEffect>
+    <repairEffect>Repair</repairEffect>
+    <filthLeaving>BuildingRubble</filthLeaving>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase" Class="MD2.DSUDef">
+    <defName>MD2Incinerator</defName>
+    <EType>BuildingComplex</EType>
+    <label>Incinerator</label>
+    <ThingClass>MD2.Building_Incinerator</ThingClass>
+    <description>Contains intense flames to render unwanted materials to ash</description>
+    <graphicPath>Things/Building/Production/Crematorium</graphicPath>
+    <graphicClass>Graphic_Single</graphicClass>
+    <shaderType>CutoutComplex</shaderType>
+    <costStuffCount>150</costStuffCount>
+    <stuffCategories>
+      <li>Stony</li>
+    </stuffCategories>
+    <costList>
+      <Steel>40</Steel>
+    </costList>
+    <AltitudeLayer>Waist</AltitudeLayer>
+    <UseStandardHealth>True</UseStandardHealth>
+    <statBases>
+      <WorkToMake>4500</WorkToMake>
+      <MaxHealth>300</MaxHealth>
+      <Flammability>0</Flammability>
+    </statBases>
+    <Size>(3,2)</Size>
+    <tickerType>Normal</tickerType>
+    <graphicOverdraw>False</graphicOverdraw>
+    <DesignationCategory>Production</DesignationCategory>
+    <hasInteractionCell>True</hasInteractionCell>
+    <interactionSquareOffset>(0,0,-1)</interactionSquareOffset>
+    <fillPercent>1</fillPercent>
+    <Passability>Impassable</Passability>
+    <itemSurface>True</itemSurface>
+    <building>
+        <fixedStorageSettings>
+            <priority>Low</priority>
+            <allowances>
+                <categories>
+                    <li>ResourcesRaw</li>
+                    <li>Manufactured</li>
+                </categories>
+            </allowances>
+        </fixedStorageSettings>
+        <defaultStorageSettings>
+            <priority>Low</priority>
+            <allowances>
+                <categories>
+                </categories>
+            </allowances>
+        </defaultStorageSettings>
+    </building>
+    <inspectorTabs>
+        <li>ITab_Storage</li>
+    </inspectorTabs>
+    <comps>
+      <li>
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>250</basePowerConsumption>
+        <startElectricalFires>true</startElectricalFires>
+        <soundPowerOn>PowerOnSmall</soundPowerOn>
+        <soundPowerOff>PowerOffSmall</soundPowerOff>
+      </li>
+      <li>
+        <compClass>CompGlower</compClass>
+        <glowRadius>6</glowRadius>
+        <glowColor>(217,112,33,0)</glowColor>
+      </li>
+    </comps>
+  </ThingDef>
+</Buildings>
+    
+    
